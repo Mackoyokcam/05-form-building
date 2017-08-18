@@ -75,7 +75,8 @@ articleView.setTeasers = function() {
 
 articleView.initNewArticlePage = function() {
   // TODO: Ensure the main .tab-content area is revealed. We might add more tabs later or otherwise edit the tab navigation.
-
+  var article = new Article({});
+  $('#articles').append(article.toHtml());
 
   // TODO: The new articles we create will be copy/pasted into our source data file.
   // Set up this "export" functionality. We can hide it for now, and show it once we have data to export.
@@ -85,7 +86,16 @@ articleView.initNewArticlePage = function() {
   });
 
   // TODO: Add an event handler to update the preview and the export field if any inputs change.
-
+  $('#new_article').on('change', function() {
+    var formInfo = $(this).serializeArray();
+    var data = {};
+    $(formInfo).each(function(index, obj){
+      data[obj.name] = obj.value;
+    });
+    article = new Article(data);
+    $('#articles').html('');
+    $(article.toHtml()).appendTo('#articles');
+  });
 };
 
 articleView.create = function() {
@@ -113,4 +123,5 @@ articleView.initIndexPage = function() {
   articleView.handleAuthorFilter();
   articleView.handleMainNav();
   articleView.setTeasers();
+  Article.showArticles();
 };

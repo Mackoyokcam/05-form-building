@@ -1,3 +1,11 @@
+#new_article input {
+  display: block;
+}
+
+#pub_box {
+  display: inline;
+}
+
 .site-header {
   background: #FFEAAA;
 }
