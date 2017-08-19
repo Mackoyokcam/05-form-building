@@ -6,6 +6,18 @@
   display: inline;
 }
 
+input {
+  margin: 20px;
+}
+
+#pub_box {
+  display: inline;
+}
+
+textarea {
+  margin-left: 20px;
+}
+
 .site-header {
   background: #FFEAAA;
 }
