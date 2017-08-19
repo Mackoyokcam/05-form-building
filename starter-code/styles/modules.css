@@ -1,21 +1,33 @@
 #new_article input {
   display: block;
+  width: 30%;
+  padding-left: 10px;
 }
 
-#pub_box {
+#new_article input[type='checkbox'] {
   display: inline;
+  width: 10px;
+}
+
+#article-export {
+  float: right;
+}
+
+#export {
+  width: 400px;
+}
+
+label {
+  font-size: 1.5em;
 }
 
 input {
   margin: 20px;
 }
 
-#pub_box {
-  display: inline;
-}
-
 textarea {
   margin-left: 20px;
+  padding-left: 20px;
 }
 
 .site-header {

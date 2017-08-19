@@ -96,14 +96,18 @@ articleView.create = function(blog) {
   // Clear out the #articles element, so we can put in the updated preview
   var article;
   $('#articles').html('');
-
   // DONE: Instantiate an article based on what's in the form fields:
-
   var formInfo = $(blog).serializeArray();
   var data = {};
   $(formInfo).each(function(index, obj){
     data[obj.name] = obj.value;
   });
+
+  //Date
+  if ($('#pub_box').is(':checked')) {
+    let d = new Date();
+    data.publishedOn = `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`;
+  }
 
   // DONE: Use our interface to the Handblebars template to put this new article into the DOM:
   data.body = marked(data.body);
@@ -123,10 +127,10 @@ articleView.create = function(blog) {
 
 
 articleView.initIndexPage = function() {
+  Article.showArticles();
   articleView.populateFilters();
   articleView.handleCategoryFilter();
   articleView.handleAuthorFilter();
   articleView.handleMainNav();
   articleView.setTeasers();
-  Article.showArticles();
 };
