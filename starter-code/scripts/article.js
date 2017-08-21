@@ -28,8 +28,10 @@ rawData.sort(function(a,b) {
 
 rawData.forEach(function(articleObject) {
   articles.push(new Article(articleObject));
-})
-
-articles.forEach(function(article){
-  $('#articles').append(article.toHtml())
 });
+
+Article.showArticles = function() {
+  articles.forEach(function(article){
+    $('#articles').append(article.toHtml())
+  });
+}
